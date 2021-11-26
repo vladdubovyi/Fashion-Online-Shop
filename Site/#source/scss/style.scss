@@ -1,0 +1,21 @@
+@import "header.scss";
+
+body {
+    margin: 0;
+    background-color: #D1F4FF;
+    font-family: 'Nunito Sans', sans-serif;
+}
+
+.main-content {
+    width: 100%;
+    height: 2070px;
+}
+
+@import "footer.scss";
+
+%menuwrapper {
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

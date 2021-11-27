@@ -27,6 +27,7 @@ footer {
     width: 40%;
     display: flex;
     justify-content: space-between;
+    margin: 0 15px;
 
     a {
         text-decoration: none;
@@ -44,24 +45,6 @@ footer {
     button {
         width: 175px;
         height: 40px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background-color: black;
-        border: 1px solid white;
-        transition: all 0.7s;
-
-        p {
-            color: white;
-        }
-
-        &:hover {
-            cursor: pointer;
-            background-color: white;
-
-            p {
-                color: black;
-            }
-        }
+        @extend %whiteBackButton; // from templates.scss
     }
 }

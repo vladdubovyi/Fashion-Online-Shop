@@ -1,4 +1,8 @@
+@import "templates.scss";
+
 @import "header.scss";
+
+@import "home/swiper.scss";
 
 body {
     margin: 0;
@@ -12,10 +16,3 @@ body {
 }
 
 @import "footer.scss";
-
-%menuwrapper {
-    width: 80%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}

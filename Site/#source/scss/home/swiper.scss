@@ -1,0 +1,53 @@
+.swiper-button-custom-prev,
+.swiper-button-custom-next {
+    cursor: pointer;
+}
+
+.swiper {
+    width: 100%;
+    height: 640px;
+    background-color: #56CCFF;
+
+    .swiper-wrapper {
+        .swiper-slide {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+}
+
+.slide-wrapper {
+    width: 80%;
+    height: inherit;
+    display: grid;
+    grid-template-columns: 70% 30%;
+}
+
+.slide-text-block {
+    height: 640px;
+    display: flex;
+    align-items: center;
+
+    h1 {
+        color: black;
+        font-size: 38px;
+        font-weight: 400;
+    }
+
+    h2 {
+        color: white;
+        font-size: 38px;
+        font-weight: 400;
+    }
+
+    button {
+        @extend %whiteBackButton; // from templates.scss
+        width: 320px;
+        height: 55px;
+
+        p {
+            font-size: 30px;
+        }
+    }
+}

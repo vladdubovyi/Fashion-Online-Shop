@@ -41,7 +41,7 @@
         font-weight: 400;
     }
 
-    button {
+    .button {
         @extend %whiteBackButton; // from templates.scss
         width: 320px;
         height: 55px;

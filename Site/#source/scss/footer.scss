@@ -42,7 +42,7 @@ footer {
 }
 
 .footer-contact {
-    button {
+    .button {
         width: 175px;
         height: 40px;
         @extend %whiteBackButton; // from templates.scss

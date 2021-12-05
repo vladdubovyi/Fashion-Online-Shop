@@ -1,0 +1,28 @@
+%menuwrapper {
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+%whiteBackButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+    border: 1px solid white;
+    transition: all 0.7s;
+
+    p {
+        color: white;
+    }
+
+    &:hover {
+        cursor: pointer;
+        background-color: white;
+
+        p {
+            color: black;
+        }
+    }
+}

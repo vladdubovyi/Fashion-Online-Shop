@@ -3,6 +3,7 @@
 <head>
     <title>Sitename</title>
     <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
 </head>
 <body>
 
@@ -23,11 +24,104 @@
             <img src="./images/MainPage/Menu/ShopBasketIcon.png" />
         </div>
     </div>
-</header>
+</header>    <!--Main content-->
     <div class="main-content">
         <div class="container">
+            <!--Swiper-->
+<div class="swiper">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide slide-1">
+            <div class="slide-wrapper">
+                <div class="slide-text-block">
+                    <div class="wrapper">
+                        <h1>Summer collection</h1>
+                        <h2>Fall-Winter Collection 2022</h2>
+                        <button><p>Shop now</p></button>
+                    </div>
+                </div>
 
+                <div class="slider-image">
+                    <img src="./images/MainPage/Slider/sample1.png" height="640px;"/>
+                </div>
+            </div>
         </div>
+        <div class="swiper-slide slide-2">
+            <div class="slide-wrapper">
+                <div class="slide-text-block">
+                    <div class="wrapper">
+                        <h1>Fall collection</h1>
+                        <h2>Winter-Spring Collection 2022</h2>
+                        <button><p>Shop now</p></button>
+                    </div>
+                </div>
+
+                <div class="slider-image">
+                    <img src="./images/MainPage/Slider/sample1.png" height="640px;"/>
+                </div>
+            </div>
+        </div>
+        <div class="swiper-slide slide-3">
+            <div class="slide-wrapper">
+                <div class="slide-text-block">
+                    <div class="wrapper">
+                        <h1>Spring collection</h1>
+                        <h2>Summer-Fall Collection 2022</h2>
+                        <button><p>Shop now</p></button>
+                    </div>
+                </div>
+
+                <div class="slider-image">
+                    <img src="./images/MainPage/Slider/sample1.png" height="640px;" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+</div>
+            <!--Collections-->
+<div class="collections">
+    <div class="collections-wrapper">
+        <div class="collection collection-1">
+            <img src="./images/MainPage/Collections/GlassesCollection.png" width="100%;" height="60%;"/>
+            <h2>Accessories</h2>
+            <a href="#"><p>Shop now</p></a>
+        </div>
+
+        <div class="collection collection-2">
+            <img src="./images/MainPage/Collections/ClothingCollection.png" width="100%;" height="100%;"/>
+            <h2>Clothing</h2>
+            <a href="#"><p>Shop now</p></a>
+        </div>
+
+        <div class="collection collection-3">
+            <img src="./images/MainPage/Collections/BootsCollection.png" width="100%;" height="60%;"/>
+            <h2>Shoes</h2>
+            <a href="#"><p>Shop now</p></a>
+        </div>
+    </div>
+</div>
+            <!--Instagram-->
+<div class="instagram">
+    <div class="instagram-wrapper">
+        <div class="image-wrapper">
+            <div class="instagram-image">
+                <img src="./images/MainPage/Instagram/1.jpg" />
+                <img src="./images/MainPage/Instagram/2.jpg" />
+                <img src="./images/MainPage/Instagram/3.jpg" />
+                <img src="./images/MainPage/Instagram/4.jpg" />
+                <img src="./images/MainPage/Instagram/5.jpg" />
+                <img src="./images/MainPage/Instagram/6.jpg" />
+            </div>
+        </div>
+        <div class="instagram-text">
+            <h2>Instagram</h2>
+
+            <p>#Fashion_lifestyle</p>
+        </div>
+    </div>
+</div>        </div>
     </div>
 
 <footer>
@@ -53,6 +147,7 @@
 
     </div>
 </footer>
+    <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
     <script src="js/jQuery/jquery-3.6.0.js"></script>
     <script src="js/main.js"></script>
 </body>

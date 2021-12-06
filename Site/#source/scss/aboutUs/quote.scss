@@ -1,0 +1,38 @@
+.quote {
+    height: 775px;
+    width: 100%;
+    display: block;
+    margin-top: 50px;
+}
+.quote-wrapper {
+    height: 100%;
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+.quote-text {
+    height: 775px;
+    background-color: #A2A781;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    p {
+        font-size: 24px;
+        padding: 0 50px;
+    }
+
+    h2 {
+        font-weight: 400;
+        font-size: 24px;
+    }
+
+    h3 {
+        font-weight: 400;
+        font-size: 24px;
+        color: #878080;
+    }
+}
+.quote-text-wrapper {
+    display: block;
+}

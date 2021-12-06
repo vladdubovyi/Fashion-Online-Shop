@@ -8,6 +8,12 @@
 
 @import "home/instagram.scss";
 
+@import "aboutUs/description.scss";
+
+@import "aboutUs/quote.scss";
+
+@import "aboutUs/statistic.scss";
+
 body {
     margin: 0;
     background-color: #D1F4FF;
@@ -17,6 +23,17 @@ body {
 .main-content {
     width: 100%;
     height: 2070px;
+}
+
+.aboutUs {
+    height: 2170px;
+}
+
+.container {
+    h2 {
+        font-size: 48px;
+        font-weight: 400;
+    }
 }
 
 @import "footer.scss";

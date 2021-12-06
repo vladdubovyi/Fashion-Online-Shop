@@ -1,0 +1,26 @@
+.description {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+.description-wrapper {
+    width: 80%;
+    display: block;
+}
+.description-text {
+    display: flex;
+}
+.description-text-item {
+    width: 33%;
+    text-align: left;
+
+    h2 {
+        font-size: 34px;
+    }
+
+    p {
+        font-size: 18px;
+        color: #878080;
+    }
+}

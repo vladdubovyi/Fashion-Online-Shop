@@ -16,6 +16,8 @@
 
 @import "contacts/map.scss";
 
+@import "contacts/information.scss";
+
 body {
     margin: 0;
     background-color: #D1F4FF;
@@ -29,6 +31,10 @@ body {
 
 .aboutUs {
     height: 2170px;
+}
+
+.contacts {
+    height: 1200px;
 }
 
 .container {

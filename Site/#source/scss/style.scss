@@ -18,6 +18,8 @@
 
 @import "contacts/information.scss";
 
+@import "shop/navbar.scss";
+
 body {
     margin: 0;
     background-color: #D1F4FF;
@@ -35,6 +37,10 @@ body {
 
 .contacts {
     height: 1200px;
+}
+
+.shop {
+
 }
 
 .container {

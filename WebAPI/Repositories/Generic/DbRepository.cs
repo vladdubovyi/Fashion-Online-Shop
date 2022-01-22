@@ -20,20 +20,28 @@ namespace Repositories.Generic
 
         DbContext IDbRepository<T>.Context => throw new NotImplementedException();
 
-        public async Task<bool> AddItemAsync(T value)
+        public async Task<bool> AddItemAsync(T entity)
         {
-            await Context.Set<T>().AddAsync(value);
+            entity.CreatedOn = DateTime.Now;
+            entity.ModifiedOn = DateTime.Now;
+            await Context.Set<T>().AddAsync(entity);
             return await SaveChangesAsync() > 0;
         }
 
-        public async Task<int> AddItemsAsync(IEnumerable<T> items)
+        public async Task<int> AddItemsAsync(IEnumerable<T> entities)
         {
-            await Context.Set<T>().AddRangeAsync(items);
+            foreach(var entity in entities)
+            {
+                entity.CreatedOn = DateTime.Now;
+                entity.ModifiedOn = DateTime.Now;
+            } 
+            await Context.Set<T>().AddRangeAsync(entities);
             return await SaveChangesAsync();
         }
 
         public async Task<bool> ChangeItemAsync(T entity)
         {
+            entity.ModifiedOn = DateTime.Now;
             Context.Entry(entity).State = EntityState.Modified;
             return await SaveChangesAsync() > 0;
         }
@@ -65,7 +73,7 @@ namespace Repositories.Generic
             {
                 return await Context.SaveChangesAsync();
             }
-            catch (Exception e)
+            catch
             {
                 return -1;
             }

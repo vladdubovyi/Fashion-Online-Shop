@@ -1,4 +1,6 @@
+using AutoMapper;
 using Context;
+using MapperProfiles;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -11,9 +13,6 @@ using Microsoft.OpenApi.Models;
 using Repositories;
 using Repositories.Abstract;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace FashionShopAPI
 {
@@ -36,6 +35,15 @@ namespace FashionShopAPI
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "FashionShopAPI", Version = "v1" });
             });
 
+            // DB Configurations
+            services.AddDbContext<AppDbContext>(options =>
+                options.UseSqlServer(
+                    Configuration.GetConnectionString("ServerConnection"),
+                    optionsBuilder => optionsBuilder.MigrationsAssembly("FashionShopAPI")));
+
+            services.AddTransient<DbContext, AppDbContext>();
+
+            // Repository Configurations
             services.AddTransient<ICategoryRepository, CategoryRepository>();
             services.AddTransient<IProductRepository, ProductRepository>();
             services.AddTransient<IPurchaseRepository, PurchaseRepository>();
@@ -45,13 +53,15 @@ namespace FashionShopAPI
             services.AddTransient<IProductTagRepository, ProductTagRepository>();
             services.AddTransient<IPurchaseProductRepository, PurchaseProductRepository>();
 
+            // AutoMapper Configurations
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
-            services.AddDbContext<AppDbContext>(options =>
-                options.UseSqlServer(
-                    Configuration.GetConnectionString("ServerConnection"), 
-                    optionsBuilder => optionsBuilder.MigrationsAssembly("FashionShopAPI")));
+            var mapperConfig = new MapperConfiguration(mc =>
+            {
+                mc.AddProfile(new MapperProfile());
+            });
+            IMapper mapper = mapperConfig.CreateMapper();
+            services.AddSingleton(mapper);
 
-            services.AddTransient<DbContext, AppDbContext>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

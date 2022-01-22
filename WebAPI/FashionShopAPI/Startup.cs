@@ -8,6 +8,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using Repositories;
+using Repositories.Abstract;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,10 +36,20 @@ namespace FashionShopAPI
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "FashionShopAPI", Version = "v1" });
             });
 
+            services.AddTransient<ICategoryRepository, CategoryRepository>();
+            services.AddTransient<IProductRepository, ProductRepository>();
+            services.AddTransient<IPurchaseRepository, PurchaseRepository>();
+            services.AddTransient<ITagRepository, TagRepository>();
+            services.AddTransient<IUserRepository, UserRepository>();
+            services.AddTransient<IUserTypeRepository, UserTypeRepository>();
+            services.AddTransient<IProductTagRepository, ProductTagRepository>();
+            services.AddTransient<IPurchaseProductRepository, PurchaseProductRepository>();
+
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             services.AddDbContext<AppDbContext>(options =>
                 options.UseSqlServer(
-                    Configuration.GetConnectionString("ConnectionString")));
+                    Configuration.GetConnectionString("ServerConnection"), 
+                    optionsBuilder => optionsBuilder.MigrationsAssembly("FashionShopAPI")));
 
             services.AddTransient<DbContext, AppDbContext>();
         }

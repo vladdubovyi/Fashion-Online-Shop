@@ -10,7 +10,7 @@ namespace Domain
     {
         DbContext Context { get; }
         IQueryable<T> AllItems { get; }
-        Task<List<T>> ToListAsync();
+        Task<List<T>> GetAllItemsAsync ();
         Task<bool> AddItemAsync(T item);
         Task<int> AddItemsAsync(IEnumerable<T> items);
         Task<T> GetItemAsync(Guid id);

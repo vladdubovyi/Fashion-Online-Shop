@@ -17,8 +17,12 @@ namespace MapperProfiles
             CreateMap<Category, CategoryGetDTO>();
 
             CreateMap<TagCreateDTO, Tag>();
-            CreateMap<TagUpdateDTO, Category>();
+            CreateMap<TagUpdateDTO, Tag>();
             CreateMap<Tag, TagGetDTO>();
+
+            CreateMap<UserTypeCreateDTO, UserType>();
+            CreateMap<UserTypeUpdateDTO, UserType>();
+            CreateMap<UserType, UserTypeGetDTO>();
         }
     }
 }

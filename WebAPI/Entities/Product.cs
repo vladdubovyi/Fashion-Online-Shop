@@ -15,6 +15,6 @@ namespace Entities
         [Column(TypeName = "decimal(18,4)")]
         public decimal Price { get; set; }
         public Category Category { get; set; }
-        public List<ProductTag> Tags { get; set; }
+        public List<Tag> Tags { get; set; }
     }
 }

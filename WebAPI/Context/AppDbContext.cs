@@ -18,7 +18,6 @@ namespace Context
         public DbSet<Category> Categories { get; set; }
         public DbSet<UserType> UserTypes { get; set; }
         public DbSet<PurchaseProduct> PurchaseProduct { get; set; }
-        public DbSet<ProductTag> ProductTag { get; set; }
 
         public AppDbContext(DbContextOptions<AppDbContext> options) :base(options)
         {

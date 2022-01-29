@@ -8,5 +8,6 @@ namespace Entities
     {
         [MaxLength(64)]
         public string Name { get; set; }
+        public List<User> Users { get; set; }
     }
 }

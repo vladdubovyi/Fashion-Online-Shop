@@ -50,14 +50,16 @@ namespace FashionShopAPI
             services.AddTransient<ITagRepository, TagRepository>();
             services.AddTransient<IUserRepository, UserRepository>();
             services.AddTransient<IUserTypeRepository, UserTypeRepository>();
-            services.AddTransient<IProductTagRepository, ProductTagRepository>();
             services.AddTransient<IPurchaseProductRepository, PurchaseProductRepository>();
 
             // AutoMapper Configurations
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             var mapperConfig = new MapperConfiguration(mc =>
             {
-                mc.AddProfile(new MapperProfile());
+                mc.AddProfile(new CategoryMapperProfile());
+                mc.AddProfile(new TagMapperProfile());
+                mc.AddProfile(new UserMapperProfile());
+                mc.AddProfile(new UserTypeMapperProfile());
             });
             IMapper mapper = mapperConfig.CreateMapper();
             services.AddSingleton(mapper);

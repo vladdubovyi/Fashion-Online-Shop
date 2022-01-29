@@ -67,6 +67,11 @@ namespace Repositories.Generic
             return await AllItems.ToListAsync();
         }
 
+        public async Task<bool> DeleteAllItemsAsync()
+        {
+            Context.Set<T>().RemoveRange(AllItems);
+            return await SaveChangesAsync() > 0;
+        }
         public async Task<int> SaveChangesAsync()
         {
             try

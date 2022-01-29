@@ -16,6 +16,7 @@ namespace Domain
         Task<T> GetItemAsync(Guid id);
         Task<bool> ChangeItemAsync(T item);
         Task<bool> DeleteItemAsync(Guid id);
+        Task<bool> DeleteAllItemsAsync();
         Task<int> SaveChangesAsync();
     }
 }

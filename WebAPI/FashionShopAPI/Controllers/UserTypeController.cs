@@ -14,10 +14,10 @@ namespace FashionShopAPI.Controllers
     [Route("api/[controller]")]
     public class UserTypeController : Controller
     {
-        private ITagRepository _repository;
+        private IUserTypeRepository _repository;
         private IMapper _mapper;
 
-        public UserTypeController(ITagRepository repository, IMapper mapper)
+        public UserTypeController(IUserTypeRepository repository, IMapper mapper)
         {
             _repository = repository ?? throw new ArgumentNullException(nameof(repository));
             _mapper = mapper ?? throw new ArgumentNullException(nameof(repository));
@@ -40,13 +40,13 @@ namespace FashionShopAPI.Controllers
         [HttpPost]
         public async Task<IActionResult> InsertUserType([FromBody] UserTypeCreateDTO userTypeCreateDTO)
         {
-            var userType = _mapper.Map<Tag>(userTypeCreateDTO);
+            var userType = _mapper.Map<UserType>(userTypeCreateDTO);
 
             if (await _repository.AddItemAsync(userType))
             {
                 await _repository.SaveChangesAsync();
 
-                var userTypeGetDTO = _mapper.Map<TagGetDTO>(userType);
+                var userTypeGetDTO = _mapper.Map<UserTypeGetDTO>(userType);
 
                 return CreatedAtRoute(nameof(GetUserTypeById),
                                       new { Id = userType.Id },
@@ -58,13 +58,13 @@ namespace FashionShopAPI.Controllers
         [HttpPatch]
         public async Task<IActionResult> UpdateUserType([FromBody] UserTypeUpdateDTO userTypeUpdateDTO)
         {
-            var userType = _mapper.Map<Tag>(userTypeUpdateDTO);
+            var userType = _mapper.Map<UserType>(userTypeUpdateDTO);
 
             if (await _repository.ChangeItemAsync(userType))
             {
                 await _repository.SaveChangesAsync();
 
-                var userTypeGetDTO = _mapper.Map<TagUpdateDTO>(userType);
+                var userTypeGetDTO = _mapper.Map<UserTypeUpdateDTO>(userType);
 
                 return Ok(userTypeGetDTO);
             }
@@ -76,6 +76,13 @@ namespace FashionShopAPI.Controllers
         public async Task<IActionResult> DeleteUserTypeById(Guid Id)
         {
             if (await _repository.DeleteItemAsync(Id)) return Ok($"Deleted user type with Id {Id}");
+            return NotFound();
+        }
+
+        [HttpDelete]
+        public async Task<IActionResult> DeleteAllUserTypes()
+        {
+            if (await _repository.DeleteAllItemsAsync()) return Ok($"Deleted all user types");
             return NotFound();
         }
     }

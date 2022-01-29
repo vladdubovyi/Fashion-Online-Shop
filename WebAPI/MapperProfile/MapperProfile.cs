@@ -23,6 +23,10 @@ namespace MapperProfiles
             CreateMap<UserTypeCreateDTO, UserType>();
             CreateMap<UserTypeUpdateDTO, UserType>();
             CreateMap<UserType, UserTypeGetDTO>();
+
+            CreateMap<UserCreateDTO, User>();
+            CreateMap<UserUpdateDTO, User>();
+            CreateMap<User, UserGetDTO>();
         }
     }
 }

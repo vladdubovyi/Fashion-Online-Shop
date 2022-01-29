@@ -78,5 +78,12 @@ namespace FashionShopAPI.Controllers
             if (await _repository.DeleteItemAsync(Id)) return Ok($"Deleted category with Id {Id}");
             return NotFound();
         }
+
+        [HttpDelete]
+        public async Task<IActionResult> DeleteAllCategories()
+        {
+            if (await _repository.DeleteAllItemsAsync()) return Ok($"Deleted all categories");
+            return NotFound();
+        }
     }
 }

@@ -1,0 +1,80 @@
+.information {
+    height: 410px;
+    margin-top: 30px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.information-wrapper {
+    width: 80%;
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+.information-text {
+    text-align: left;
+
+    h1 {
+        font-size: 48px;
+        font-weight: 400;
+    }
+
+    h2 {
+        font-size: 36px;
+        font-weight: 400;
+    }
+
+    h3 {
+        font-size: 24px;
+        font-weight: 400;
+    }
+
+    p {
+        font-size: 22px;
+        color: #878080;
+        font-weight: 400;
+    }
+}
+
+.information-contact {
+    form {
+        height: 100%;
+        display: grid;
+        grid-template-columns: 50% 50%;
+        grid-template-rows: 20% 60% 20%;
+        align-items: center;
+
+        input[type=text], input[type=email] {
+            border: none;
+            background-color: white;
+        }
+    }
+}
+
+.information-contact-input1, .information-contact-input2 {
+    height: 55px;
+    width: 90%;
+}
+
+.information-contact-input3 {
+    grid-column: 1 / 3;
+    height: 172px;
+    width: 95%;
+}
+
+.information-contact-input4 {
+    transition: all .5s;
+    background-color: black;
+    color: white;
+    grid-column: 1 / 3;
+    grid-row: 3 / 4;
+    height: 55px;
+    width: 95%;
+
+    &:hover {
+        background-color: white;
+        color: black;
+    }
+}

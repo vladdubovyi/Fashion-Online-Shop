@@ -38,7 +38,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Repositories", "Repositorie
 		{87E72BC7-F04F-458A-A214-C04403D42328} = {87E72BC7-F04F-458A-A214-C04403D42328}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MapperProfiles", "MapperProfile\MapperProfiles.csproj", "{AC15A0E0-8A42-405B-AB02-5557573AF925}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MapperProfiles", "MapperProfile\MapperProfiles.csproj", "{AC15A0E0-8A42-405B-AB02-5557573AF925}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

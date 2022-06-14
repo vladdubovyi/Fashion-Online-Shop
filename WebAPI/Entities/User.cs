@@ -8,9 +8,8 @@ namespace Entities
 	{
 		[MaxLength(64)]
 		public string UserName { get; set; }
-		//TODO: Change it to PasswordHASH
-		[MaxLength(64)]
-		public string Password { get; set; }
+		[MaxLength(256)]
+		public string PasswordHASH { get; set; }
 		[MaxLength(64)]
 		public string FirstName { get; set; }
 		[MaxLength(64)]

@@ -10,6 +10,7 @@ namespace Repositories.Abstract
 	public interface IAuthRepository
 	{
 		Task<User> TryAuthenticate(string username, string password);
+		Task<User> Register(User user);
 		string GenerateToken(User user);
 	}
 }

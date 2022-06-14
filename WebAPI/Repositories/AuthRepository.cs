@@ -19,6 +19,7 @@ namespace Repositories
 	public class AuthRepository : IAuthRepository
 	{
 		private readonly AppDbContext _db;
+		private readonly IConfiguration _configuration;
 		private readonly JwtConfig _jwtConfig;
 		public AuthRepository(AppDbContext context, IConfiguration configuration, IOptionsMonitor<JwtConfig> optionsMonitor)
 		{
@@ -29,20 +30,23 @@ namespace Repositories
 
 		public async Task<User> TryAuthenticate(string email, string password)
 		{
-			// Getting users only by username
+			// Getting users only by email
 			var user = await _db.Users
 				.Where(u => u.Email == email)
-				.ToListAsync();
+				.FirstOrDefaultAsync();
 
 			if (user == null)
 				return null;
 
-			// TODO: Add user Salt to protect
-			var res = user.Where(u => u.Password == password).FirstOrDefault();
+			// Getting user and site salts
+			var userSalt = Utilities.Time.GetUnixTimeStamp(user.CreatedOn).ToString();
+			var siteSalt = _configuration.GetValue<string>("WebsiteSalt");
 
-			if (res == null) return null;
+			// Seasoning input password and comparing with PasswordHash from db
+			if (user.PasswordHASH == Utilities.Security.Password.Season(password, userSalt, siteSalt))
+				return user;
 
-			return res;
+			return null;
 		}
 
 		public string GenerateToken(User user)
@@ -57,7 +61,7 @@ namespace Repositories
 				{
 					new Claim(JwtRegisteredClaimNames.Email, user.Email)
 				}),
-				Expires = DateTime.UtcNow.AddHours(6),
+				Expires = DateTime.UtcNow.AddMinutes(15),
 				SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
 			};
 
@@ -65,6 +69,31 @@ namespace Repositories
 			var jwtToken = jwtTokenHandler.WriteToken(token);
 
 			return jwtToken;
+		}
+
+		public async Task<User> Register(User user)
+		{
+			// Getting users only by email
+			var userTemp = await _db.Users
+				.Where(u => u.Email == user.Email)
+				.FirstOrDefaultAsync();
+
+			if (userTemp != null)
+				return null;
+
+			user.CreatedOn = DateTime.UtcNow;
+
+			// Getting user and site salts
+			var userSalt = Utilities.Time.GetUnixTimeStamp(user.CreatedOn).ToString();
+			var siteSalt = _configuration.GetValue<string>("WebsiteSalt");
+
+			// Hashing users' password
+			user.PasswordHASH = Utilities.Security.Password.Season(user.PasswordHASH, userSalt, siteSalt);
+
+			_db.Users.Add(user);
+			await _db.SaveChangesAsync();
+
+			return user;
 		}
 	}
 }

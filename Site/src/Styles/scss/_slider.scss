@@ -1,0 +1,51 @@
+.slider-container {
+  max-width: 100vw;
+  width: 100%;
+  overflow: hidden;
+
+  .slide {
+    .swiper-slide {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    width: 80%;
+    height: inherit;
+    display: grid;
+    grid-template-columns: 70% 30%;
+  }
+
+  .slide-wrapper {
+    height: 640px;
+    background-color: #56ccff;
+  }
+
+  .slide-text-block {
+    height: 640px;
+    display: flex;
+    align-items: center;
+    text-align: left;
+
+    h1 {
+      color: black;
+      font-size: 24px;
+      font-weight: 400;
+    }
+
+    h2 {
+      color: white;
+      font-size: 70px;
+      font-weight: 400;
+    }
+
+    .button {
+      @extend %whiteBackButton; // from _templates
+      width: 320px;
+      height: 55px;
+
+      p {
+        font-size: 30px;
+      }
+    }
+  }
+}

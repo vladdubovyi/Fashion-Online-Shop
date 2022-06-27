@@ -1,12 +1,22 @@
 import React from "react";
 import { Container, Nav, Navbar } from "react-bootstrap";
 import { BsSearch, BsSuitHeart, BsFillBagFill } from "react-icons/bs";
+import logo from "../Images/Logo_black.png";
 
 const AppNavbar = () => {
   return (
     <Navbar>
       <Container>
-        <Navbar.Brand href="/">Clothkolibry</Navbar.Brand>
+        <Navbar.Brand href="/">
+          <img
+            alt=""
+            src={logo}
+            width="50"
+            height="50"
+            className="d-inline-block align-top"
+          />{" "}
+          Clothkolibry
+        </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav>

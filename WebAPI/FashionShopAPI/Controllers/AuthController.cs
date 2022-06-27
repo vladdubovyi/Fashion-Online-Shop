@@ -2,7 +2,6 @@
 using DTOs.Post;
 using Entities;
 using FashionShopAPI.Controllers.Abstract;
-using FashionShopAPI.Controllers.Abstract.Responses;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Repositories.Abstract;
@@ -23,7 +22,6 @@ namespace FashionShopAPI.Controllers
 			_mapper = mapper;
 		}
 
-		[AllowAnonymous]
 		[HttpPost("Login")]
 		public async Task<IActionResult> Login([FromBody] UserLogin userLogin)
 		{
@@ -41,7 +39,6 @@ namespace FashionShopAPI.Controllers
 			});
 		}
 
-		[AllowAnonymous]
 		[HttpPost("Register")]
 		public async Task<IActionResult> Register([FromBody] UserRegister userRegister)
 		{

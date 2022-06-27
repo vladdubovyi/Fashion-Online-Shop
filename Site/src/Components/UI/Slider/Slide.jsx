@@ -1,5 +1,6 @@
 import React from "react";
 import { Container } from "react-bootstrap";
+import ButtonShop from "../ButtonShop";
 
 const Slide = ({ header, text, buttonText, buttonLink, img }) => {
   return (
@@ -10,9 +11,7 @@ const Slide = ({ header, text, buttonText, buttonLink, img }) => {
             <div>
               <h1>{header}</h1>
               <h2>{text}</h2>
-              <a className="button" href={buttonLink}>
-                <p>{buttonText}</p>
-              </a>
+              <ButtonShop buttonLink={buttonLink} buttonText={buttonText} />
             </div>
           </div>
 

@@ -1,4 +1,4 @@
-.slider-container .slide-text-block .button {
+.button {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -7,14 +7,14 @@
   transition: all 0.7s;
   text-decoration: none;
 }
-.slider-container .slide-text-block .button p {
+.button p {
   color: white;
 }
-.slider-container .slide-text-block .button:hover {
+.button:hover {
   cursor: pointer;
   background-color: white;
 }
-.slider-container .slide-text-block .button:hover p {
+.button:hover p {
   color: black;
 }
 
@@ -103,13 +103,6 @@
   font-size: 70px;
   font-weight: 400;
 }
-.slider-container .slide-text-block .button {
-  width: 320px;
-  height: 55px;
-}
-.slider-container .slide-text-block .button p {
-  font-size: 30px;
-}
 
 body {
   background-color: #e7f9ff;
@@ -124,4 +117,12 @@ body {
 
 p {
   margin: 0;
+}
+
+.button {
+  width: 320px;
+  height: 55px;
+}
+.button p {
+  font-size: 30px;
 }

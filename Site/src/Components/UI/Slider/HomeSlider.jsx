@@ -3,9 +3,8 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slide from "./Slide";
-import summerImage from "../../../Images/MainPage/Slider/sample1.png";
 
-const HomeSlider = () => {
+const HomeSlider = ({ slides }) => {
   var settings = {
     dots: true,
     infinite: true,
@@ -16,16 +15,18 @@ const HomeSlider = () => {
   return (
     <div className="slider-container">
       <Slider {...settings}>
-        <Slide
-          header={"Summer collection"}
-          text={"Fall-Winter Collection 2022"}
-          buttonText={"Shop now!"}
-          buttonLink={"/Shop"}
-          img={summerImage}
-        />
-        <div>
-          <h3>2</h3>
-        </div>
+        {slides.map((item) => {
+          return (
+            <Slide
+              header={item.header}
+              text={item.text}
+              buttonText={item.buttonText}
+              buttonLink={item.buttonLink}
+              img={require("../../../Images/" + item.imageSrc)}
+              key={item.id}
+            />
+          );
+        })}
       </Slider>
     </div>
   );

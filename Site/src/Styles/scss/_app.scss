@@ -10,3 +10,12 @@ body {
 p {
   margin: 0;
 }
+.button {
+  @extend %whiteBackButton; // from _templates
+  width: 320px;
+  height: 55px;
+
+  p {
+    font-size: 30px;
+  }
+}

@@ -14,11 +14,13 @@
   }
   .cart {
     :hover {
+      color: red;
       animation: shake 0.5s ease-in-out forwards;
     }
   }
-  .search {
+  .profile {
     :hover {
+      color: red;
       animation: shake 0.5s ease-in-out forwards;
     }
   }

@@ -5,8 +5,8 @@ import HomeSlider from "./UI/Slider/HomeSlider";
 const HomePageContent = ({ data }) => {
   return (
     <>
-      <HomeSlider slides={data} />
-      <CollectionSection />
+      <HomeSlider slides={data.slides} />
+      <CollectionSection collections={data.collections} />
     </>
   );
 };

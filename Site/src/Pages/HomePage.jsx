@@ -1,15 +1,17 @@
 import React, { useEffect, useState } from "react";
 import HomePageContent from "../Components/HomePageContent";
-import { Spinner } from "react-bootstrap";
 import SiteRepository from "../API/SiteRepository";
+import Loader from "../Components/UI/Loader";
 
 const HomePage = () => {
   const [slides, setSlides] = useState(null);
+  const [collections, setCollections] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     async function fetchData() {
-      setSlides((await SiteRepository.GetSlides()).slides);
+      setSlides(await SiteRepository.GetSlides());
+      setCollections(await SiteRepository.GetCollections());
       setIsLoading(false);
     }
     fetchData();
@@ -18,9 +20,11 @@ const HomePage = () => {
   return (
     <>
       {isLoading ? (
-        <Spinner animation="grow" variant="info" />
+        <Loader animation="grow" variant="info" />
       ) : (
-        <HomePageContent data={slides} />
+        <HomePageContent
+          data={{ slides: slides.slides, collections: collections.collections }}
+        />
       )}
     </>
   );

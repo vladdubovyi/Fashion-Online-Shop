@@ -1,0 +1,36 @@
+.collection {
+  width: 500px;
+  height: 600px;
+  display: grid;
+  grid-template-rows: 70% 15% 15%;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  transition: all 0.5s;
+
+  &:hover {
+    background-color: white;
+  }
+
+  h2 {
+    font-size: 38px;
+    font-weight: 400;
+  }
+
+  p {
+    font-size: 24px;
+  }
+
+  a {
+    color: black;
+
+    p {
+      transition: all 0.5s;
+      color: black;
+
+      &:hover {
+        color: red;
+      }
+    }
+  }
+}

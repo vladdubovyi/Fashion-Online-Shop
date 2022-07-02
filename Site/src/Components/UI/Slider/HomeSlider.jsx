@@ -24,6 +24,7 @@ const HomeSlider = ({ slides }) => {
               buttonLink={item.buttonLink}
               img={require("../../../Images/" + item.imageSrc)}
               key={item.id}
+              bgColor={item.backgroundColor}
             />
           );
         })}

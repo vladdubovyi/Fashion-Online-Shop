@@ -2,9 +2,9 @@ import React from "react";
 import { Container } from "react-bootstrap";
 import ButtonShop from "../ButtonShop";
 
-const Slide = ({ header, text, buttonText, buttonLink, img }) => {
+const Slide = ({ header, text, buttonText, buttonLink, img, bgColor }) => {
   return (
-    <div className="slide-wrapper">
+    <div className="slide-wrapper" style={{ backgroundColor: bgColor }}>
       <Container>
         <div className="slide">
           <div className="slide-text-block">

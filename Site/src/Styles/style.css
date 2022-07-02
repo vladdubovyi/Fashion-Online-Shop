@@ -30,10 +30,12 @@
           animation: shake 0.5s ease-in-out forwards;
 }
 .navbar .cart :hover {
+  color: red;
   -webkit-animation: shake 0.5s ease-in-out forwards;
           animation: shake 0.5s ease-in-out forwards;
 }
-.navbar .search :hover {
+.navbar .profile :hover {
+  color: red;
   -webkit-animation: shake 0.5s ease-in-out forwards;
           animation: shake 0.5s ease-in-out forwards;
 }
@@ -85,7 +87,6 @@
 }
 .slider-container .slide-wrapper {
   height: 640px;
-  background-color: #56ccff;
 }
 .slider-container .slide-text-block {
   height: 640px;
@@ -102,6 +103,37 @@
   color: white;
   font-size: 70px;
   font-weight: 400;
+}
+
+.collection {
+  width: 500px;
+  height: 600px;
+  display: grid;
+  grid-template-rows: 70% 15% 15%;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  transition: all 0.5s;
+}
+.collection:hover {
+  background-color: white;
+}
+.collection h2 {
+  font-size: 38px;
+  font-weight: 400;
+}
+.collection p {
+  font-size: 24px;
+}
+.collection a {
+  color: black;
+}
+.collection a p {
+  transition: all 0.5s;
+  color: black;
+}
+.collection a p:hover {
+  color: red;
 }
 
 body {
@@ -125,4 +157,17 @@ p {
 }
 .button p {
   font-size: 30px;
+}
+
+.loaredWrapper {
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s;
 }

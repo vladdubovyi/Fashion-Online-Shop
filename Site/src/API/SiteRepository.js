@@ -10,4 +10,12 @@ export default class SiteRepository {
       return null;
     }
   }
+  static async GetCollections() {
+    try {
+      const response = await axios.get(APIConfig.Path + "collection");
+      return response.data;
+    } catch (ex) {
+      return null;
+    }
+  }
 }

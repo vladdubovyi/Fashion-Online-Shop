@@ -79,6 +79,7 @@ namespace FashionShopAPI
 			services.AddTransient<IPurchaseProductRepository, PurchaseProductRepository>();
 			services.AddTransient<IAuthRepository, AuthRepository>();
 			services.AddTransient<ISliderRepository, SliderRepository>();
+			services.AddTransient<ICollectionRepository, CollectionRepository>();
 
 			// AutoMapper Configurations
 			services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());

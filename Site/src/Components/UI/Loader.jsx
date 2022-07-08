@@ -3,7 +3,7 @@ import { Spinner } from "react-bootstrap";
 
 const Loader = ({ variant, animation }) => {
   return (
-    <div className="loaredWrapper">
+    <div className="loaderWrapper">
       <Spinner animation={animation} variant={variant} className="spinner" />
     </div>
   );

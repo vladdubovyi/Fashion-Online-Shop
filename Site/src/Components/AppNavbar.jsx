@@ -5,7 +5,7 @@ import logo from "../Images/Logo_black.png";
 
 const AppNavbar = () => {
   return (
-    <Navbar collapseOnSelect expand="lg" bg="light">
+    <Navbar collapseOnSelect expand="lg">
       <Container>
         <Navbar.Brand href="/">
           <img

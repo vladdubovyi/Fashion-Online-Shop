@@ -8,12 +8,12 @@ using System.Threading.Tasks;
 
 namespace Domain
 {
-    public class DbEntity : IDbEntity
-    {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public Guid Id { get; set; }
-        public DateTime? CreatedOn { get; set; }
-        public DateTime? ModifiedOn { get; set; }
-    }
+	public class DbEntity : IDbEntity
+	{
+		[Key]
+		[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+		public Guid Id { get; set; }
+		public DateTime CreatedOn { get; set; }
+		public DateTime? ModifiedOn { get; set; }
+	}
 }

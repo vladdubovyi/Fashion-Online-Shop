@@ -1,0 +1,33 @@
+body {
+  background-color: #e7f9ff;
+  font-family: "Nunito Sans", sans-serif;
+}
+.App {
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+p {
+  margin: 0;
+}
+.button {
+  @extend %whiteBackButton; // from _templates
+  width: 320px;
+  height: 55px;
+
+  p {
+    font-size: 30px;
+  }
+}
+.loaderWrapper {
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s;
+}

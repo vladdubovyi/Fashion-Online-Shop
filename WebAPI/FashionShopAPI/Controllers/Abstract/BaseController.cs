@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using Domain;
-using FashionShopAPI.Controllers.Abstract.Responses;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using System;
@@ -19,14 +18,6 @@ namespace FashionShopAPI.Controllers.Abstract
 			_repository = repository ?? throw new System.ArgumentNullException(nameof(repository));
 			_mapper = mapper ?? throw new System.ArgumentNullException(nameof(mapper));
 			_configuration = _configuration ?? throw new System.ArgumentNullException(nameof(_configuration));
-		}
-
-		//TODO: Think about this approach
-		[NonAction]
-		[Obsolete]
-		public IActionResult Ok(string message)
-		{
-			return new BaseResponse(message);
 		}
 	}
 }

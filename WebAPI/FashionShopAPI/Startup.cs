@@ -33,7 +33,8 @@ namespace FashionShopAPI
 		// This method gets called by the runtime. Use this method to add services to the container.
 		public void ConfigureServices(IServiceCollection services)
 		{
-
+			// Enabling cors (only for development mode)
+			services.AddCors(builder => builder.AddPolicy("AllowOrigin", options => options.AllowAnyOrigin()));
 			services.AddControllers();
 			services.AddSwaggerGen(c =>
 			{
@@ -77,6 +78,8 @@ namespace FashionShopAPI
 			services.AddTransient<IUserRepository, UserRepository>();
 			services.AddTransient<IPurchaseProductRepository, PurchaseProductRepository>();
 			services.AddTransient<IAuthRepository, AuthRepository>();
+			services.AddTransient<ISliderRepository, SliderRepository>();
+			services.AddTransient<ICollectionRepository, CollectionRepository>();
 
 			// AutoMapper Configurations
 			services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
@@ -113,7 +116,6 @@ namespace FashionShopAPI
 			});
 
 			services.Configure<JwtConfig>(Configuration.GetSection("JwtSettings"));
-
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -128,6 +130,7 @@ namespace FashionShopAPI
 
 			app.UseRouting();
 
+			app.UseCors();
 			app.UseAuthorization();
 			app.UseAuthentication();
 

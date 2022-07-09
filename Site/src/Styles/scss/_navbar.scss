@@ -1,0 +1,42 @@
+.navbar {
+  .navbar-brand {
+    font-size: 38px;
+  }
+  .nav-link {
+    font-size: 22px;
+  }
+
+  .heart {
+    :hover {
+      color: red;
+      animation: shake 0.5s ease-in-out forwards;
+    }
+  }
+  .cart {
+    :hover {
+      color: red;
+      animation: shake 0.5s ease-in-out forwards;
+    }
+  }
+  .profile {
+    :hover {
+      color: red;
+      animation: shake 0.5s ease-in-out forwards;
+    }
+  }
+}
+
+@keyframes shake {
+  0% {
+    transform: rotate(2deg);
+  }
+  50% {
+    transform: rotate(-3deg);
+  }
+  70% {
+    transform: rotate(3deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}

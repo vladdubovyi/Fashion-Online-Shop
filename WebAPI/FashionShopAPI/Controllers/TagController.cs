@@ -23,6 +23,7 @@ namespace FashionShopAPI.Controllers
 		{ }
 
 		[HttpGet]
+		[AllowAnonymous]
 		public async Task<IActionResult> GetAllTags()
 		{
 			return Ok(await _repository.GetAllItemsAsync());
